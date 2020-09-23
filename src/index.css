@@ -5,8 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
-  -webkit-margin-start: 0px;
+  /* overflow-y: hidden; */
   background-color: #000102;
 }
 
@@ -69,14 +68,8 @@ code {
   font-weight: bolder;
 }
 
-.logo {
-  width: 180px;
-  height: 15vh;
-}
-
 .logo-img {
-  display: flex;
-  flex-direction: row;
+  height: 9vh;
 }
 
 .paper {
@@ -100,11 +93,10 @@ form {
   margin: 0px auto;
 }
 
-.bg-dark {
-  background-color: black;
-  color: rgb(250, 250, 249);
-}
-
-.bg-dark h4 {
+.title {
   text-align: left;
+  color: rgb(255, 253, 251);
+  font-size: 2.1rem;
+  font-family: Brush Script MT;
+  font-weight: bold;
 }

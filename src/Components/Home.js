@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import {
   Container, Row, Col, Button,
 } from 'react-bootstrap';
@@ -11,10 +12,9 @@ const HomePage = () => (
       <Row>
         <Col sm={6} xs={6} className="landing-header">
           <div>
-            <h1 className="mt-4 bg-dark"> BEAUTIFUL TAGS</h1>
             <Slider />
             <Link to="/shopping">
-              <Button size="md" className="mt-4">
+              <Button size="md" className="mt-4 text-white">
                 GET STARTED
               </Button>
             </Link>
