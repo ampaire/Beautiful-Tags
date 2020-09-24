@@ -8,9 +8,9 @@ import {
   Nav,
   Button,
 } from 'react-bootstrap';
-import Register from '../auth/register';
+import Register from '../../Auth/Register';
 import { open_registration, open_login, logout } from '../../../Actions/authActions';
-import Login from 'auth/login';
+import Login from '../../Auth/Login';
 
 const AppHeader = ({
   close_modal_register, open_registration,
@@ -46,8 +46,8 @@ const AppHeader = ({
         variant="light"
         className={
           scroll
-            ? 'navbar-custom fixed-top'
-            : 'navbar-custom fixed-top scrolled-nav'
+            ? 'navbar-custom fixed-top bg-dark'
+            : 'navbar-custom fixed-top scrolled-nav bg dark'
         }
       >
         <Navbar.Brand href="/" className={scroll ? null : 'scrolled-nav-items'}>
@@ -68,10 +68,10 @@ const AppHeader = ({
           </strong>
         </div>
         <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
+          aria-controls="responsive-navbar-nav bg-dark"
           className={scroll ? null : 'scrolled-nav-items'}
         />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Collapse id="responsive-navbar-nav bg-dark">
           <Nav className="ml-auto mr-4 nav-bar-custom font-14">
             <Nav.Link href="/home">HOME</Nav.Link>
             <Nav.Link href="/aboutpage">ABOUT US</Nav.Link>
