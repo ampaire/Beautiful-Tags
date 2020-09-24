@@ -1,18 +1,16 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable camelcase */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
   Navbar,
   Nav,
-  Image,
   Button,
 } from 'react-bootstrap';
-import { useEffect } from 'react';
-import Register from '../../views/auth/register';
-import { open_registration, open_login, logout } from '../../../actions/authActions';
-import Login from '../../views/auth/login';
+import Register from '../auth/register';
+import { open_registration, open_login, logout } from '../../../Actions/authActions';
+import Login from 'auth/login';
 
 const AppHeader = ({
   close_modal_register, open_registration,
