@@ -2,7 +2,6 @@ import {
   fetchProductsPending, fetchProductsSuccess, fetchProductsError,
 } from './index';
 import apiUrl from '../constants/index';
-
 import { FETCH_PRODUCTS_PENDING } from './ActionTypes';
 
 function fetchItems(token) {
