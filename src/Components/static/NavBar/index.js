@@ -51,13 +51,13 @@ const AppHeader = ({
         }
       >
         <Navbar.Brand href="/" className={scroll ? null : 'scrolled-nav-items'}>
-          <p className="mt-4 title">
+          <h4 className="mt-4 title">
             {' '}
             BEAUTIFUL TAGS
-          </p>
+          </h4>
         </Navbar.Brand>
         <div className="custom-color d-lg-none d-xl-none">
-          Welcome:
+          Welcome
           {' '}
           <strong className="custom-color">
             {data != null
@@ -73,15 +73,13 @@ const AppHeader = ({
         />
         <Navbar.Collapse id="responsive-navbar-nav bg-dark">
           <Nav className="ml-auto mr-4 nav-bar-custom font-14">
-            <Nav.Link href="/home">HOME</Nav.Link>
-            <Nav.Link href="/aboutpage">ABOUT US</Nav.Link>
-            <Nav.Link href="/contactUs">CONTACT US</Nav.Link>
+            <Nav.Link className="ml-2 nav-li" href="/home">HOME</Nav.Link>
+            <Nav.Link className="ml-2 nav-li" href="/contactUs">CONTACT US</Nav.Link>
             {data != null ? (
               data.user.name != null ? (
                 <>
-                  <Nav.Link href="/allhotels">HOTELS</Nav.Link>
-                  <Nav.Link href="/flights">FLIGHTS</Nav.Link>
-                  <Nav.Link href="/" className="custom-color">
+                  <Nav.Link className="ml-2 nav-li" href="/landing">OUR PRODUCTS</Nav.Link>
+                  <Nav.Link className="ml-2 nav-li custom-color" href="/">
                     HELLO:
                     {' '}
                     <strong className="custom-color">{data.user.name}</strong>
@@ -92,12 +90,12 @@ const AppHeader = ({
                       e.preventDefault();
                       logout();
                     }}
-                    className="color-primary"
+                    className="color-primary ml-2"
                   >
                     logout
                     {' '}
                     <i
-                      className="fa fa-arrow-circle-o-right"
+                      className="fa fa-arrow-circle-o-right ml-2"
                       aria-hidden="true"
                     />
                   </Nav.Link>
@@ -107,7 +105,7 @@ const AppHeader = ({
               <div className="btn-holder">
                 <Button
                   size="sm"
-                  className="mr-4 btn-custom font-12 custom-purple"
+                  className="ml-2 btn-custom join-btn font-12"
                   onClick={() => open_login()}
                 >
                   SIGN IN
@@ -115,7 +113,7 @@ const AppHeader = ({
                 <Button
                   variant="outline-info"
                   size="sm"
-                  className="mr-4  btn-custom font-12"
+                  className="ml-2 btn-custom font-12"
                   onClick={() => open_registration()}
                 >
                   JOIN
