@@ -109,7 +109,7 @@ const AppHeader = ({
                   className="ml-2 btn-custom join-btn font-12"
                   onClick={() => open_login()}
                 >
-                  SIGN IN
+                  LOGIN
                 </Button>
                 <Button
                   variant="outline-info"
@@ -117,7 +117,7 @@ const AppHeader = ({
                   className="ml-2 btn-custom font-12"
                   onClick={() => open_registration()}
                 >
-                  JOIN
+                  SIGN UP
                 </Button>
               </div>
             )}

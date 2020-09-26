@@ -19,6 +19,15 @@ const HomePage = () => (
               <Slider />
             </div>
           </Col>
+          <Col sm={6} xs={6} className="landing-header">
+            <div>
+              <p className="description">
+                {' '}
+                Welcome to Beautiful Tags, a place where you get to shop a variety of
+                of high quality Women&apos;s clothes, bags and shoes. Sign up to get started today!
+              </p>
+            </div>
+          </Col>
         </Row>
       </Container>
     </section>
