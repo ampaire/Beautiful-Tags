@@ -79,6 +79,7 @@ const AppHeader = ({
               data.user.name != null ? (
                 <>
                   <Nav.Link className="ml-2 nav-li" href="/landing">OUR PRODUCTS</Nav.Link>
+                  <Nav.Link className="ml-2 nav-li" href="/favorite">WISH LIST</Nav.Link>
                   <Nav.Link className="ml-2 nav-li custom-color" href="/">
                     HELLO:
                     {' '}
