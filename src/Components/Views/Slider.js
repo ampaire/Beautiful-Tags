@@ -2,10 +2,10 @@
 import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import slide1 from '../Assets/slide1.jpg';
-import slide2 from '../Assets/slide2.jpg';
-import slide3 from '../Assets/slide3.jpg';
-import slide4 from '../Assets/slide4.jpg';
+import slide1 from '../../Assets/slide1.jpg';
+import slide2 from '../../Assets/slide2.jpg';
+import slide3 from '../../Assets/slide3.jpg';
+import slide4 from '../../Assets/slide4.jpg';
 
 function Slider() {
   return (

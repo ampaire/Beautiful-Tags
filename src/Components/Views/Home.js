@@ -3,7 +3,7 @@ import {
   Container, Row, Col,
 } from 'react-bootstrap';
 import React from 'react';
-import AppHeader from './static/NavBar/index';
+import AppHeader from '../static/NavBar/index';
 import Slider from './Slider';
 
 const HomePage = () => (
