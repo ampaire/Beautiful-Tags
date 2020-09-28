@@ -1,69 +1,126 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable camelcase */
-import api from '../api';
-import { authConstants } from '../constants';
-// Regsister User
-const load_register = () => ({
-  type: authConstants.registering,
-});
-export const register_user_request = user_data => {
-  const data = {
-    name: user_data.userName,
-    email: user_data.email,
-    password: user_data.password,
-  };
-  return (dispatch => {
-    // dispatch registering
-    dispatch(load_register());
+import {
+  LOGIN_USER, fetchProductsError, fetchProductsPending, FetchUserDetails,
+} from './index';
+import {
+  authConstants, inputValidation, loadingIcon, apiUrl,
+} from '../constants';
+import { LOGIN_USER_PENDING } from './ActionTypes';
 
-    // register api
-    return api.registerUser(data)
-      .then(response => {
-        dispatch({
-          type: authConstants.register_user_success,
-          payload: response.data,
-        });
-      }).catch(error => {
-        dispatch({
-          type: authConstants.register_user_fail,
-          payload: error,
-        });
-      });
-  });
+// Regsister User
+export const SignUp = data => dispatch => {
+  loadingIcon();
+  const event = new FormData();
+  for (const name in data) {
+    event.append(name, data[name]);
+  }
+  fetch(`${apiUrl}/users`,
+    {
+      method: 'POST',
+      body: event,
+    })
+    .then(res => res.json())
+    .then(res => {
+      if (res.error) {
+        throw (res.error);
+      }
+      if (res.auth_token !== undefined) {
+        dispatch(LOGIN_USER(res));
+      } else {
+        loadingIcon();
+        inputValidation(res);
+      }
+      return res;
+    })
+    .catch(error => error);
 };
 
 // logging in user
-const load_login = () => ({
-  type: authConstants.logging,
-});
+export const loginUser = data => dispatch => {
+  dispatch(fetchProductsPending(LOGIN_USER_PENDING));
+  loadingIcon();
+  fetch(`${apiUrl}/auth/login`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(res => res.json())
+    .then(res => {
+      if (res.error) {
+        throw (res.error);
+      }
+      loadingIcon();
+      if (res.auth_token !== undefined) {
+        dispatch(LOGIN_USER(res));
+      }
+      return res;
+    })
+    .catch(error => {
+      dispatch(fetchProductsError(error));
+    });
+};
+
 // Logout User
 export const logout = () => ({
   type: authConstants.logout_user,
 });
-// Login User
-export const login_user_request = login_details => (dispatch => {
-  // dispatch logging
-  dispatch(load_login());
 
-  // login api
-  return api.loginUser(login_details)
-    .then(response => {
-      (response.data.data.errors === 'Invalid Credentials')
-        ? dispatch({
-          type: authConstants.login_user_fail,
-          payload: response.data.data.errors,
-        })
-        : dispatch({
-          type: authConstants.login_user_success,
-          payload: response.data,
-        });
-    }).catch(error => {
-      dispatch({
-        type: authConstants.login_user_fail,
-        payload: error,
-      });
+// Get user Info
+export const fetchUser = token => dispatch => {
+  dispatch(fetchProductsPending(LOGIN_USER_PENDING));
+  fetch(`${apiUrl}/profile`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then(res => res.json())
+    .then(res => {
+      if (res.error) {
+        throw res.error;
+      }
+      dispatch(FetchUserDetails(res));
+    })
+    .catch(error => {
+      dispatch(fetchProductsError(error));
     });
-});
+};
+
+// Edit user info
+export const editProfile = (data, token, callBack) => dispatch => {
+  loadingIcon();
+  dispatch(fetchProductsPending(LOGIN_USER_PENDING));
+  const event = JSON.stringify(data);
+  const requestOptions = {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: event,
+  };
+  fetch(`${apiUrl}/edit-profile`, requestOptions)
+    .then(res => res.json())
+    .then(res => {
+      if (res.error) {
+        throw res.error;
+      }
+      if (res.id !== undefined) {
+        callBack();
+      } else {
+        loadingIcon();
+        inputValidation(res);
+      }
+      return res;
+    })
+    .catch(error => error);
+};
 
 // Open Registration modal
 export const open_registration = () => ({

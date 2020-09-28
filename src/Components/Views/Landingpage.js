@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 
 const ItemPreview = ({ props }) => {
   const {
-    name, price, id, image,
+    name, price, id,
   } = props;
   return (
     <div className="preview column shadow">
       <Link to={`/items/${id}`}>
         <div className="item-img">
-          <img className="responsive" src={`${image.url}`} alt="preview" />
+          {/* <img className="responsive" src={`${image.url}`} alt="preview" /> */}
         </div>
         <div className="prev-text">
           <div>

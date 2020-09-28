@@ -3,63 +3,67 @@ import {
   FETCH_PRODUCTS_ERROR,
   FETCH_SINGLE_SUCCESS,
   FETCH_PRODUCTS_SUCCESS,
+  FETCH_USER_DETAILS,
   REMOVE_FAV,
-  ADD_WISHLIST,
+  LOGIN,
+  LOGOUT,
+  ADD_FAVORITE,
 } from './ActionTypes';
 
-const fetchProductsPending = type => ({
+export const fetchProductsPending = type => ({
   type,
 });
 
-const saveToken = token => {
+export const saveToken = token => {
   localStorage.setItem('token', JSON.stringify(token));
 };
 
-const saveDetails = details => {
+export const saveDetails = details => {
   localStorage.setItem('details', JSON.stringify(details));
 };
 
-const getDetails = () => {
+export const getDetails = () => {
   const res = localStorage.getItem('details');
   return JSON.parse(res);
 };
 
-const getToken = () => {
+export const getToken = () => {
   const res = localStorage.getItem('token');
   return JSON.parse(res);
 };
 
-const removeFav = playload => ({
+export const removeFav = playload => ({
   type: REMOVE_FAV,
   playload,
 });
 
-const fetchProductsSuccess = playload => ({
+export const fetchProductsSuccess = playload => ({
   type: FETCH_PRODUCTS_SUCCESS,
   playload,
 });
 
-const fetchProductsError = playload => ({
+export const fetchProductsError = playload => ({
   type: FETCH_PRODUCTS_ERROR,
   playload,
 });
 
-const fetchSingleItem = playload => ({
+export const fetchSingleItem = playload => ({
   type: FETCH_SINGLE_SUCCESS,
   playload,
 });
 
-const AddFavorite = () => ({ type: ADD_WISHLIST });
+export const LOGIN_USER = playload => ({
+  type: LOGIN,
+  playload,
+});
 
-export {
-  fetchProductsError,
-  fetchProductsPending,
-  fetchProductsSuccess,
-  fetchSingleItem,
-  saveToken,
-  saveDetails,
-  getDetails,
-  removeFav,
-  AddFavorite,
-  getToken,
-};
+export const LOGOUT_USER = () => ({
+  type: LOGOUT,
+});
+
+export const FetchUserDetails = playload => ({
+  type: FETCH_USER_DETAILS,
+  playload,
+});
+
+export const AddFavorite = () => ({ type: ADD_FAVORITE });
