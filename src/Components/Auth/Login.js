@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
@@ -14,7 +13,6 @@ import {
   close_login,
   loginUser,
 } from '../../Actions/authActions';
-import Loader from '../static/Loader';
 import { loadingIcon } from '../../constants/index';
 
 class LoginForm extends React.Component {
@@ -82,7 +80,7 @@ class LoginForm extends React.Component {
                     .required('Enter your email'),
                   password: Yup.string().required('Password is required').min(8, 'Atleast 8 Characters'),
                 })}
-                onSubmit={(values, { setSubmitting }) => {
+                onSubmit={values => {
                   setTimeout(() => {
                     loginUser(values);
                   }, 400);
@@ -92,9 +90,7 @@ class LoginForm extends React.Component {
                   values,
                   errors,
                   touched,
-                  handleChange,
                   handleBlur,
-                  handleSubmit,
                   isSubmitting,
                 }) => (
                   <Form className="register">
