@@ -117,6 +117,7 @@ class LoginForm extends React.Component {
                         value={values.email}
                         required
                         onChange={this.handleChange}
+                        onBlur={handleBlur}
                       />
                       {touched.email && errors.email ? (
                         <div className="text-danger mt-1 font-12">
@@ -142,6 +143,7 @@ class LoginForm extends React.Component {
                         value={values.password}
                         required
                         onChange={this.handleChange}
+                        onBlur={handleBlur}
                       />
                       {touched.password && errors.password ? (
                         <div className="text-danger mt-1 font-12">
