@@ -1,8 +1,7 @@
 import {
-  fetchProductsPending, fetchSingleItem, fetchProductsError,
-} from './index';
-import { FETCH_SINGLE_PENDING } from './ActionTypes';
-import apiUrl from '../constants/index';
+  fetchProductsPending, fetchSingleItem, fetchProductsError, BASE_URL,
+} from './Index';
+import { FETCH_SINGLE_PENDING } from './Types';
 
 function fetchSingle(token, id, method) {
   return dispatch => {
@@ -15,7 +14,7 @@ function fetchSingle(token, id, method) {
       },
     };
 
-    fetch(`${apiUrl}/items/${id}`, requestOptions)
+    fetch(`${BASE_URL}/products/${id}`, requestOptions)
       .then(res => res.json())
       .then(res => {
         if (res.error) {

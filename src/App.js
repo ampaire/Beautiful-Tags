@@ -1,17 +1,25 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import store, { history } from './store';
-import MainApp from './Components/index';
+import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Default from './Components/home';
+import SignupForm from './Containers/SignUpForm';
+import LoginForm from './Containers/LoginForm';
+import ProductsList from './Containers/ProductsList';
 
-const App = () => (
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <div className="main-app">
-        <MainApp />
-      </div>
-    </ConnectedRouter>
-  </Provider>
-);
+function App() {
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" component={Default} exact />
+          <Route path="/login" component={LoginForm} />
+          <Route path="/signup" component={SignupForm} />
+          <Route path="/products" component={ProductsList} exact />
+
+        </Switch>
+      </BrowserRouter>
+    </div>
+  );
+}
 
 export default App;

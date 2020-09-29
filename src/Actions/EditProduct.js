@@ -1,6 +1,6 @@
-import { fetchProductsPending } from './index';
-import { inputValidation, loadingIcon, apiUrl } from '../constants/index';
-import { FETCH_SINGLE_PENDING } from './ActionTypes';
+import { fetchProductsPending, BASE_URL } from './Index';
+import { inputValidation, loadingIcon } from '../Helpers/Index';
+import { FETCH_SINGLE_PENDING } from './Types';
 
 function editItem(data, token, id, callBack) {
   return dispatch => {
@@ -15,7 +15,7 @@ function editItem(data, token, id, callBack) {
       },
       body: event,
     };
-    fetch(`${apiUrl}/items/${id}`, requestOptions)
+    fetch(`${BASE_URL}/products/${id}`, requestOptions)
       .then(res => res.json())
       .then(res => {
         if (res.error) {

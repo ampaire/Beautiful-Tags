@@ -1,18 +1,19 @@
 /* eslint-disable camelcase */
 import {
+  GET_USER,
+  LOGIN_SUCCESS,
+  LOGOUT_SUCCESS,
+  GET_ERRORS,
+  CLEAR_ERRORS,
+  LOGIN_FAIL,
   FETCH_PRODUCTS_ERROR,
   FETCH_SINGLE_SUCCESS,
   FETCH_PRODUCTS_SUCCESS,
-  FETCH_USER_DETAILS,
   REMOVE_FAV,
-  LOGIN,
-  LOGOUT,
   ADD_FAVORITE,
-} from './ActionTypes';
+} from './Types';
 
-export const fetchProductsPending = type => ({
-  type,
-});
+export const BASE_URL = 'https://effie-api.herokuapp.com';
 
 export const saveToken = token => {
   localStorage.setItem('token', JSON.stringify(token));
@@ -31,6 +32,35 @@ export const getToken = () => {
   const res = localStorage.getItem('token');
   return JSON.parse(res);
 };
+
+export const LOGIN_USER = playload => ({
+  type: LOGIN_SUCCESS,
+  playload,
+});
+
+export const LOGOUT_USER = () => ({
+  type: LOGOUT_SUCCESS,
+});
+
+export const FetchUserDetails = playload => ({
+  type: GET_USER,
+  playload,
+});
+export const returnErrors = (msg, status = null, id = null) => ({
+  type: GET_ERRORS,
+  payload: { msg, status, id },
+});
+
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS,
+});
+
+export const fetchUsersError = playload => ({
+  type: LOGIN_FAIL,
+  playload,
+});
+
+export const AddFavorite = () => ({ type: ADD_FAVORITE });
 
 export const removeFav = playload => ({
   type: REMOVE_FAV,
@@ -52,18 +82,6 @@ export const fetchSingleItem = playload => ({
   playload,
 });
 
-export const LOGIN_USER = playload => ({
-  type: LOGIN,
-  playload,
+export const fetchProductsPending = type => ({
+  type,
 });
-
-export const LOGOUT_USER = () => ({
-  type: LOGOUT,
-});
-
-export const FetchUserDetails = playload => ({
-  type: FETCH_USER_DETAILS,
-  playload,
-});
-
-export const AddFavorite = () => ({ type: ADD_FAVORITE });

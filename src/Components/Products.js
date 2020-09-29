@@ -2,15 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const ItemPreview = ({ props }) => {
+const Products = ({ props }) => {
   const {
-    name, price, id,
+    name, price, id, image, description,
   } = props;
   return (
-    <div className="preview column shadow">
+    <div className="preview shadow">
       <Link to={`/items/${id}`}>
         <div className="item-img">
-          {/* <img className="responsive" src={`${image.url}`} alt="preview" /> */}
+          <img className="img-itm" src={`${image.url}`} alt="pictur" />
         </div>
         <div className="prev-text">
           <div>
@@ -21,9 +21,12 @@ const ItemPreview = ({ props }) => {
             {price}
           </div>
           <div>
-            <i className="fas fa-star has-text-warning" />
-            <i className="fas fa-star has-text-warning" />
-            <i className="fas fa-star has-text-warning" />
+            <i className="star" />
+            <i className="star" />
+            <i className="star" />
+          </div>
+          <div>
+            <p>{description}</p>
           </div>
         </div>
       </Link>
@@ -31,22 +34,24 @@ const ItemPreview = ({ props }) => {
   );
 };
 
-ItemPreview.defaultProps = {
+Products.defaultProps = {
   name: '',
   image: {},
   price: 0,
   id: 0,
+  description: '',
   props: {},
 };
 
-ItemPreview.propTypes = {
+Products.propTypes = {
   name: PropTypes.string,
   image: PropTypes.shape({
     url: PropTypes.string,
   }),
   id: PropTypes.number,
   price: PropTypes.number,
+  description: PropTypes.string,
   props: PropTypes.shape({}),
 };
 
-export default ItemPreview;
+export default Products;

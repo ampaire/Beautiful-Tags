@@ -1,13 +1,13 @@
 import {
-  fetchProductsPending, fetchProductsSuccess, fetchProductsError,
-} from './index';
-import apiUrl from '../constants/index';
-import { FETCH_PRODUCTS_PENDING } from './ActionTypes';
+  fetchProductsPending, fetchProductsSuccess, fetchProductsError, BASE_URL,
+} from './Index';
+
+import { FETCH_PRODUCTS_PENDING } from './Types';
 
 function fetchItems(token) {
   return dispatch => {
     dispatch(fetchProductsPending(FETCH_PRODUCTS_PENDING));
-    fetch(`${apiUrl}/items`, {
+    fetch(`${BASE_URL}/products`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
