@@ -5,6 +5,7 @@ import Default from './Components/home';
 import SignupForm from './Containers/SignUpForm';
 import LoginForm from './Containers/LoginForm';
 import ProductsList from './Containers/ProductsList';
+import UserProfile from './Containers/User';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/login" component={LoginForm} />
           <Route path="/signup" component={SignupForm} />
           <Route path="/products" component={ProductsList} exact />
+          <Route path="/profile" component={UserProfile} />
 
         </Switch>
       </BrowserRouter>

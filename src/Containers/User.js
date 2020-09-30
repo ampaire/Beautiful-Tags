@@ -4,7 +4,7 @@ import { Chart } from 'react-google-charts';
 import { Link } from 'react-router-dom';
 import PropTypes, { shape } from 'prop-types';
 import Products from '../Components/Products';
-import fetchUser from '../Actions/AuthActions';
+import { fetchUser } from '../Actions/AuthActions';
 import Nav from './Nav';
 import Spiner from '../Components/Spinner';
 
