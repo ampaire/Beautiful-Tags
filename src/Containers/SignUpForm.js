@@ -30,7 +30,7 @@ class SignupForm extends React.Component {
     if (store.user.auth_token !== '') {
       loadingIcon();
       fetchUser(store.user.auth_token);
-      history.push('/items');
+      history.push('/products');
     }
   }
 
