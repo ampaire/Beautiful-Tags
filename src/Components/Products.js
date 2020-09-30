@@ -8,7 +8,7 @@ const Products = ({ props }) => {
   } = props;
   return (
     <div className="preview shadow">
-      <Link to={`/items/${id}`}>
+      <Link to={`/products/${id}`}>
         <div className="item-img">
           <img className="img-itm" src={`${image.url}`} alt="pictur" />
         </div>
