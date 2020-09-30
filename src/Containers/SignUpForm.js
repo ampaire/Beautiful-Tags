@@ -1,45 +1,20 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable linebreak-style */
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import ImageUploader from 'react-images-upload';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-
 import { createUser, fetchUser } from '../Actions/AuthActions';
 import { loadingIcon } from '../Helpers/Index';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Chic Store
-      </Link>
-      {' '}
-      {new Date().getFullYear()}
-      .
-    </Typography>
-  );
-}
-
-class SignUpForm extends React.Component {
+class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fname: '',
-      lname: '',
+      name: '',
       email: '',
       password: '',
       password_confirmation: '',
@@ -70,7 +45,7 @@ class SignUpForm extends React.Component {
     const { store } = this.props;
     if (store.user.auth_token !== '') {
       this.setState({
-        fname: '', lname: '', email: '', password: '', password_confirmation: '',
+        name: '', email: '', password: '', password_confirmation: '',
       });
     }
   }
@@ -83,135 +58,116 @@ class SignUpForm extends React.Component {
 
   render() {
     const {
-      fname, lname, email, password, password_confirmation,
+      name, email, password, password_confirmation,
     } = this.state;
     return (
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <div className="paper">
-          <Avatar className="avatar">
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
-          </Typography>
-          <form className="form" autoComplete="off" validate="true" onSubmit={this.handleSubmit}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="fname"
-                  name="fname"
-                  variant="outlined"
+      <div className="wrap">
+        <div className="signup-form">
+          <h4 className="form-control new-book-text">CREATE ACCOUNT</h4>
+          <form className="form-control" onSubmit={this.handleSubmit}>
+
+            <div className="field">
+              <label className="label">Name</label>
+              <div className="control has-icons-left">
+                <input
+                  className="input"
+                  type="text"
                   required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  value={fname}
-                  autoFocus
+                  placeholder="Name"
+                  name="name"
+                  value={name}
                   onChange={this.handleChange}
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  variant="outlined"
+                <span className="icon is-small is-left">
+                  <i className="fas fa-profile" />
+                </span>
+              </div>
+            </div>
+
+            <div className="field">
+              <label className="label">Email</label>
+              <div className="control has-icons-left">
+                <input
+                  className="input"
+                  type="email"
                   required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lname"
-                  value={lname}
-                  autoComplete="lname"
-                  onChange={this.handleChange}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
+                  placeholder="Email"
                   value={email}
-                  autoComplete="email"
+                  name="email"
                   onChange={this.handleChange}
                 />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
+                <span className="icon is-small is-left">
+                  <i className="fas fa-envelope" />
+                </span>
+              </div>
+            </div>
+
+            <div className="field">
+              <label className="label">Password</label>
+              <div className="control has-icons-left">
+                <input
+                  className="input"
                   type="password"
-                  id="password"
+                  required
+                  placeholder="password"
                   value={password}
-                  autoComplete="current-password"
+                  name="password"
                   onChange={this.handleChange}
                 />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="password_confirmation"
-                  label="Confirm Password"
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock" />
+                </span>
+              </div>
+            </div>
+
+            <div className="field">
+              <label className="label">Password confirmation</label>
+              <div className="control has-icons-left">
+                <input
+                  className="input"
                   type="password"
-                  id="password_confirmation"
+                  required
+                  placeholder="password confirmation"
                   value={password_confirmation}
+                  name="password_confirmation"
                   onChange={this.handleChange}
                 />
-              </Grid>
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock" />
+                </span>
+              </div>
+            </div>
 
-              <ImageUploader
-                withIcon
-                buttonText="Profile picture"
-                onChange={this.onDrop}
-                required
-                imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                maxFileSize={500000}
-              />
+            <ImageUploader
+              withIcon
+              buttonText="Profile picture"
+              onChange={this.onDrop}
+              required
+              imgExtension={['.jpg', '.gif', '.png', '.gif']}
+              maxFileSize={500000}
+            />
 
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className="submit"
-            >
-              Sign Up
-            </Button>
-            <Grid container justify="flex-end">
-              <Grid item>
-                <Link href="/login" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
+            <div className="field">
+              <p className="control">
+                <button className="button is-success" type="submit">
+                  Signup
+                </button>
+              </p>
+            </div>
           </form>
+          <h4>-Have an account?-</h4>
+          <Link to="/" className="button has-text-info">Login</Link>
         </div>
-        <Box mt={5}>
-          <Copyright />
-        </Box>
-      </Container>
+      </div>
     );
   }
 }
 
-SignUpForm.defaultProps = {
+SignupForm.defaultProps = {
   history: {},
 };
 
-SignUpForm.propTypes = {
+SignupForm.propTypes = {
   createUser: PropTypes.func.isRequired,
   fetchUser: PropTypes.func.isRequired,
   store: PropTypes.shape({
@@ -231,4 +187,4 @@ const mapDispatchToProps = {
 
 const mapStateToProps = store => ({ store });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);

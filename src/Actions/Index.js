@@ -13,7 +13,7 @@ import {
   ADD_FAVORITE,
 } from './Types';
 
-export const BASE_URL = 'https://effie-api.herokuapp.com';
+export const BASE_URL = 'https://intense-savannah-62345.herokuapp.com';
 
 export const saveToken = token => {
   localStorage.setItem('token', JSON.stringify(token));
