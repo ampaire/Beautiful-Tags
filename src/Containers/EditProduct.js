@@ -1,22 +1,28 @@
-/* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import editItem from '../Actions/EditProduct';
+import ImageUploader from 'react-images-upload';
+import createItem from '../Actions/AddProduct';
 import Nav from './Nav';
 
-class EditItem extends React.Component {
+class ItemForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.store.single.details.item.name,
-      price: this.props.store.single.details.item.price,
-      contact: this.props.store.single.details.item.contact,
-      description: this.props.store.single.details.item.description,
+      name: '',
+      price: '',
+      contact: '',
+      description: '',
+      image: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onDrop = this.onDrop.bind(this);
+  }
+
+  onDrop(picture) {
+    this.setState({ image: picture[0] });
   }
 
   handleChange(el) {
@@ -27,31 +33,26 @@ class EditItem extends React.Component {
 
   handleSubmit(ev) {
     ev.preventDefault();
-    const { store, editItem, history } = this.props;
+    const { store, createItem, history } = this.props;
     const callBack = () => {
-      // eslint-disable-next-line react/prop-types
-      history.push('/items');
       this.setState({
-        name: '',
-        price: '',
-        contact: '',
-        description: '',
-        image: '',
+        name: '', contact: '', price: '', description: '', image: '',
       });
+      history.push('/items');
     };
-    editItem(this.state, store.user.auth_token, store.single.details.item.id, callBack);
+    createItem(this.state, store.user.auth_token, callBack);
   }
 
   render() {
     const {
-      name, description, contact, price,
+      name, contact, description, price,
     } = this.state;
     return (
       <div>
-        <Nav text="Edit Item" />
+        <Nav text="New Item" />
         <div className="wrap">
           <div className="signup-form">
-            <h4 className="is-title is-size-4 new-book-text">EDIT ITEM</h4>
+            <h4 className="form-control new-book-text">CREATE ITEM</h4>
             <form className="form-control" onSubmit={this.handleSubmit}>
               <div className="field">
                 <label className="label">Name</label>
@@ -59,6 +60,7 @@ class EditItem extends React.Component {
                   <input
                     className="input"
                     type="text"
+                    required
                     placeholder="Name"
                     name="name"
                     value={name}
@@ -76,6 +78,7 @@ class EditItem extends React.Component {
                   <input
                     className="input"
                     type="number"
+                    required
                     placeholder="Price"
                     name="price"
                     value={price}
@@ -93,9 +96,10 @@ class EditItem extends React.Component {
                   <input
                     className="input"
                     type="text"
+                    required
+                    value={contact}
                     placeholder="contact"
                     name="contact"
-                    value={contact}
                     onChange={this.handleChange}
                   />
                   <span className="icon is-small is-left">
@@ -110,17 +114,24 @@ class EditItem extends React.Component {
                   <textarea
                     className="textarea"
                     name="description"
-                    placeholder="Textarea"
                     value={description}
+                    placeholder="Description"
                     onChange={this.handleChange}
                   />
                 </div>
               </div>
 
+              <ImageUploader
+                withIcon
+                buttonText="Item Image"
+                onChange={this.onDrop}
+                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                maxFileSize={500000}
+              />
               <div className="field">
                 <p className="control">
                   <button className="button is-success" type="submit">
-                    Update
+                    CREATE
                   </button>
                 </p>
               </div>
@@ -135,10 +146,14 @@ class EditItem extends React.Component {
 const mapStateToProps = store => ({ store });
 
 const mapDispatchToProps = {
-  editItem,
+  createItem,
 };
 
-EditItem.propTypes = {
+ItemForm.defaultProps = {
+  history: {},
+};
+
+ItemForm.propTypes = {
   store: PropTypes.shape({
     items: PropTypes.shape({}),
     user: PropTypes.shape({
@@ -153,23 +168,11 @@ EditItem.propTypes = {
         }),
       }),
     }),
-    single: PropTypes.shape({
-      details: PropTypes.shape({
-        liked: PropTypes.bool,
-        price: PropTypes.number,
-        id: PropTypes.number,
-        item: PropTypes.shape({
-          id: PropTypes.number,
-          description: PropTypes.string,
-          contact: PropTypes.string,
-          price: PropTypes.number,
-          name: PropTypes.string,
-        }),
-      }),
-    }),
   }).isRequired,
-  editItem: PropTypes.func.isRequired,
-  history: PropTypes.shape({}).isRequired,
+  createItem: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditItem);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemForm);

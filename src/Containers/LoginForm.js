@@ -1,11 +1,10 @@
-/* eslint-disable linebreak-style */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Link from '@material-ui/core/Link';
+import { Link } from 'react-router-dom';
 import { loginUser, fetchUser } from '../Actions/AuthActions';
-import { loadingIcon } from '../Helpers/Index';
+import { loadingIcon } from '../Constants/index';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -24,7 +23,7 @@ class LoginForm extends React.Component {
     if (store.user.auth_token !== '') {
       loadingIcon();
       fetchUser(store.user.auth_token);
-      history.push('/products');
+      history.push('/items');
     }
   }
 
@@ -86,14 +85,14 @@ class LoginForm extends React.Component {
 
             <div className="field">
               <p className="control">
-                <button className="button is-success" type="submit">
+                <button className="button is-outlined" type="submit">
                   Login
                 </button>
               </p>
             </div>
           </form>
           <h4>or</h4>
-          <Link to="/signup" className="button is-outlined has-text-primary">
+          <Link to="/signup" className="button is-outlined">
             Signup
           </Link>
         </div>

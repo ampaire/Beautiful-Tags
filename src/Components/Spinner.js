@@ -1,14 +1,13 @@
-/* eslint-disable no-unused-expressions */
 import React from 'react';
-import logo from '../Assets/logo.svg';
 
-const Spinner = () => {
-  <div className="App">
-    <img src={logo} className="App-logo" alt="logo" />
-    <p>
-      PAGE LOADING...
-    </p>
-  </div>;
-};
+const Spiner = () => (
+  <div className="spin-container">
+    <div className="spin" id="loader" />
+    <div className="spin" id="loader2" />
+    <div className="spin" id="loader3" />
+    <div className="spin" id="loader4" />
+    <span id="text">LOADING...</span>
+  </div>
+);
 
-export default Spinner;
+export default Spiner;

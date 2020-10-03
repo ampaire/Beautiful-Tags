@@ -3,7 +3,7 @@ import {
 } from './Index';
 
 import { FETCH_SINGLE_PENDING, FETCH_PRODUCTS_PENDING } from './Types';
-import { loadingIcon } from '../Helpers/Index';
+import { loadingIcon } from '../Constants/index';
 
 export const addFavorite = (token, id, method) => dispatch => {
   loadingIcon();
@@ -31,7 +31,6 @@ export const addFavorite = (token, id, method) => dispatch => {
       dispatch(fetchProductsError(error));
     });
 };
-
 export const removeFavorite = (token, id) => dispatch => {
   dispatch(fetchProductsPending(FETCH_PRODUCTS_PENDING));
   const requestOptions = {

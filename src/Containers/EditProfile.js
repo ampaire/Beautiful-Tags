@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import editProfile from '../Actions/AuthActions';
+import { editProfile } from '../Actions/AuthActions';
 import Nav from './Nav';
 
 class EditProfile extends React.Component {
@@ -41,7 +41,7 @@ class EditProfile extends React.Component {
         <Nav text="Edit Profile" />
         <div className="wrap">
           <div className="signup-form">
-            <h4 className="form-control new-book-text">EDIT PROFILE</h4>
+            <h4 className="form-control new-book-text">CREATE ACCOUNT</h4>
             <form className="form-control" onSubmit={this.handleSubmit}>
 
               <div className="field">
@@ -96,7 +96,7 @@ class EditProfile extends React.Component {
               <div className="field">
                 <p className="control">
                   <button className="button is-success" type="submit">
-                    Update
+                    Update Profile
                   </button>
                 </p>
               </div>

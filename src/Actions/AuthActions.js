@@ -11,7 +11,7 @@ import {
 
 import { USER_LOADING } from './Types';
 
-import { inputValidation } from '../Helpers/Index';
+import { inputValidation } from '../Constants/index';
 
 export const loginUser = data => dispatch => {
   dispatch(fetchProductsPending(USER_LOADING));

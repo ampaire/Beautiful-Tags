@@ -1,16 +1,28 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
 }
 
-
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family:
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Courier New",
     monospace;
 }
 
@@ -23,7 +35,6 @@ code {
 
 .alice-carousel__prev-btn [data-area]::after, .alice-carousel__next-btn [data-area]::after {
   position: relative;
-  display: none;
   content: attr(data-area);
   text-transform: capitalize;
   color: white;
@@ -34,66 +45,4 @@ code {
   width: 100%;
   height: 500px;
   object-fit: cover
-}
-
-.btn-container {
-  height: 10vh;
-  background-color: black;
-  width: 100%;
-  margin-left: 0rem;
-}
-
-.outlined-btn {
-  background: transparent;
-  padding: 1%;
-  outline: none;
-  margin-top: 10px;
-  height: 9vh;
-  min-width: 10vw;
-  border: none;
-  margin-left: 10%;
-  border-radius: 10%;
-  justify-self: right;
-}
-
-.divider {
-  width: 10%;
-  display: inline-block;
-}
-
-.links {
-  color: white;
-  text-decoration: none;
-  font-weight: bolder;
-}
-
-.logo {
-  width: 180px;
-  height: 15vh;
-}
-
-.logo-img {
-  display: flex;
-  flex-direction: row;
-}
-
-.paper {
-  margin-top: 8px;
-  display: flex;
-  flex-direction:column;
-  align-items: center;
-}
-
-.avatar {
-  margin: 5px;
-  background-color: blue;
-}
-
-form {
-  width: 100%;
-  margin-top: 5px;
-}
-
-.submit {
-  margin: 0px auto;
 }

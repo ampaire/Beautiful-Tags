@@ -5,7 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { toggle } from '../Helpers/Index';
+import { toggle } from '../Constants/index';
 import { LOGOUT_USER } from '../Actions/Index';
 
 const Nav = props => {
@@ -32,7 +32,7 @@ const Nav = props => {
       <h4 className="current-text">{text}</h4>
       <ul className="nav-links">
         <li onClick={toggle}>
-          <Link to="/Products">Home</Link>
+          <Link to="/items">Home</Link>
         </li>
         <li onClick={toggle}>
           <Link to={path}>Profile</Link>
@@ -41,7 +41,7 @@ const Nav = props => {
           <Link to="/">Logout</Link>
         </li>
       </ul>
-      <div className="black-bg white-txt">
+      <div className="profile has-text-white has-background-black">
         <Link to={pathName}>
           <i className="fas fa-arrow-left" />
         </Link>
@@ -57,7 +57,7 @@ const mapDispatchToProps = {
 const mapStateToProps = store => ({ store });
 
 Nav.defaultProps = {
-  pathName: '/products',
+  pathName: '/items',
 };
 
 Nav.propTypes = {

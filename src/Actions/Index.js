@@ -1,58 +1,70 @@
 /* eslint-disable camelcase */
 import {
-  GET_USER,
-  LOGIN_SUCCESS,
-  LOGOUT_SUCCESS,
-  GET_ERRORS,
-  CLEAR_ERRORS,
-  LOGIN_FAIL,
   FETCH_PRODUCTS_ERROR,
   FETCH_SINGLE_SUCCESS,
   FETCH_PRODUCTS_SUCCESS,
+  FETCH_USER_DETAILS,
   REMOVE_FAV,
+  LOGIN,
+  LOGOUT,
   ADD_FAVORITE,
+  LOGIN_FAIL,
 } from './Types';
 
-export const BASE_URL = 'https://intense-savannah-62345.herokuapp.com';
+const fetchProductsPending = type => ({
+  type,
+});
 
-export const saveToken = token => {
+const saveToken = token => {
   localStorage.setItem('token', JSON.stringify(token));
 };
 
-export const saveDetails = details => {
+const saveDetails = details => {
   localStorage.setItem('details', JSON.stringify(details));
 };
 
-export const getDetails = () => {
+const getDetails = () => {
   const res = localStorage.getItem('details');
   return JSON.parse(res);
 };
 
-export const getToken = () => {
+const getToken = () => {
   const res = localStorage.getItem('token');
   return JSON.parse(res);
 };
 
-export const LOGIN_USER = playload => ({
-  type: LOGIN_SUCCESS,
+const removeFav = playload => ({
+  type: REMOVE_FAV,
   playload,
 });
 
-export const LOGOUT_USER = () => ({
-  type: LOGOUT_SUCCESS,
-});
-
-export const FetchUserDetails = playload => ({
-  type: GET_USER,
+const fetchProductsSuccess = playload => ({
+  type: FETCH_PRODUCTS_SUCCESS,
   playload,
 });
-export const returnErrors = (msg, status = null, id = null) => ({
-  type: GET_ERRORS,
-  payload: { msg, status, id },
+
+const fetchProductsError = playload => ({
+  type: FETCH_PRODUCTS_ERROR,
+  playload,
 });
 
-export const clearErrors = () => ({
-  type: CLEAR_ERRORS,
+const fetchSingleItem = playload => ({
+  type: FETCH_SINGLE_SUCCESS,
+  playload,
+});
+
+const LOGIN_USER = playload => ({
+  type: LOGIN,
+  playload,
+});
+
+const LOGOUT_USER = () => ({
+  type: LOGOUT,
+});
+
+const FetchUserDetails = playload => ({
+  type: FETCH_USER_DETAILS,
+  playload,
 });
 
 export const fetchUsersError = playload => ({
@@ -60,28 +72,23 @@ export const fetchUsersError = playload => ({
   playload,
 });
 
-export const AddFavorite = () => ({ type: ADD_FAVORITE });
+const AddFavorite = () => ({ type: ADD_FAVORITE });
 
-export const removeFav = playload => ({
-  type: REMOVE_FAV,
-  playload,
-});
+const BASE_URL = 'https://intense-savannah-62345.herokuapp.com';
 
-export const fetchProductsSuccess = playload => ({
-  type: FETCH_PRODUCTS_SUCCESS,
-  playload,
-});
-
-export const fetchProductsError = playload => ({
-  type: FETCH_PRODUCTS_ERROR,
-  playload,
-});
-
-export const fetchSingleItem = playload => ({
-  type: FETCH_SINGLE_SUCCESS,
-  playload,
-});
-
-export const fetchProductsPending = type => ({
-  type,
-});
+export {
+  fetchProductsError,
+  fetchProductsPending,
+  FetchUserDetails,
+  fetchProductsSuccess,
+  fetchSingleItem,
+  saveToken,
+  LOGIN_USER,
+  saveDetails,
+  getDetails,
+  removeFav,
+  AddFavorite,
+  getToken,
+  LOGOUT_USER,
+  BASE_URL,
+};

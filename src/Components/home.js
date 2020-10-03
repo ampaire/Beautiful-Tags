@@ -1,27 +1,28 @@
-/* eslint-disable react/prefer-stateless-function */
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from './slider';
-import logo from '../logo.svg';
 
-export default class Default extends Component {
-  render() {
-    return (
-      <div>
-        <header className="App-header">
-          <div className="logo-img">
-            <img src={logo} alt="App Logo" className="logo" />
-            <button type="button" className="outlined-btn">
-              <Link to="/login" className="links">LOGIN</Link>
-            </button>
-            <div className="divider" />
-            <button type="button" className="outlined-btn">
-              <Link to="/signup" className="links">SIGNUP</Link>
-            </button>
-          </div>
-          <Slider />
-        </header>
+const Home = () => (
+  <>
+    <div style={{ backgroundColor: 'black' }} className="home">
+      <div className="btn-cont">
+        <button type="button" className="button is-black is-outlined is-rounded"><Link to="/login">LOGIN</Link></button>
+        <button type="button" className="button is-black is-outlined is-rounded"><Link to="/signup">SIGNUP</Link></button>
       </div>
-    );
-  }
-}
+      <Slider />
+      <div className="desc">
+        <h4>Welcome to the Beautiful Tags</h4>
+        <p>
+          Make your shopping spree for all ladies clothes, shoes and handbags
+          <br />
+          The prices are very friendly and you can always contact
+          the sellers for your favorite items.
+          <br />
+          signup to get started!
+        </p>
+      </div>
+    </div>
+  </>
+);
+
+export default Home;

@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import fetchSingle from '../Actions/GetProduct';
-import addFavorite from '../Actions/favorites';
+import { addFavorite } from '../Actions/favorites';
 import Nav from './Nav';
 import Spiner from '../Components/Spinner';
-import { loadingIcon } from '../Helpers/Index';
+import { loadingIcon } from '../Constants/index';
 
 const ItemDetails = props => {
   const {
@@ -18,18 +18,18 @@ const ItemDetails = props => {
   const { single } = store;
   const handleClick = () => {
     if (single.details.liked === true) {
-      addFavorite(store.user.auth_token, single.details.product.id, 'DELETE');
+      addFavorite(store.user.auth_token, single.details.item.id, 'DELETE');
     } else {
-      addFavorite(store.user.auth_token, single.details.product.id, 'POST');
+      addFavorite(store.user.auth_token, single.details.item.id, 'POST');
     }
   };
   const handleDelete = () => {
     fetchSingle(store.user.auth_token, match.params.id, 'DELETE');
-    history.push('/products');
+    history.push('/items');
   };
 
   const shouldComponentRender = () => {
-    if (single.details.product.name === undefined) return false;
+    if (single.details.item.name === undefined) return false;
     return true;
   };
 
@@ -37,13 +37,13 @@ const ItemDetails = props => {
 
   return (
     <div>
-      <Nav text={single.details.product.name} />
+      <Nav text={single.details.item.name} />
       <div className="wrap-details">
         <div className="item-details shadow">
           {shouldComponentRender() === true ? (
             <div className="image">
               <img
-                src={`${single.details.product.image.url}`}
+                src={`${single.details.item.image.url}`}
                 alt="item"
               />
               <div className="basic-info">
@@ -65,25 +65,25 @@ const ItemDetails = props => {
                 </div>
                 <div className="price">
                   $
-                  {single.details.product.price}
+                  {single.details.item.price}
                 </div>
               </div>
             </div>
           ) : <Spiner />}
           <div className="full-info">
             <div>
-              <h4>About this product</h4>
-              <p>{single.details.product.description}</p>
+              <h4>About this item</h4>
+              <p>{single.details.item.description}</p>
             </div>
             <div>
               <h4>contact</h4>
-              <p>{single.details.product.contact}</p>
+              <p>{single.details.item.contact}</p>
             </div>
           </div>
           {store.user.details.details.admin === true ? (
             <div className="admin-action">
               <button className="edit" type="button">
-                <Link to={`/products/${single.details.product.id}/edit`}>Edit product</Link>
+                <Link to={`/items/${single.details.item.id}/edit`}>Edit item</Link>
               </button>
 
               <button
@@ -92,7 +92,7 @@ const ItemDetails = props => {
                 onClick={handleDelete}
                 type="button"
               >
-                Delete product
+                Delete item
               </button>
             </div>
           ) : (
@@ -138,7 +138,7 @@ ItemDetails.propTypes = {
         liked: PropTypes.bool,
         price: PropTypes.number,
         id: PropTypes.number,
-        product: PropTypes.shape({
+        item: PropTypes.shape({
           id: PropTypes.number,
           description: PropTypes.string,
           contact: PropTypes.string,

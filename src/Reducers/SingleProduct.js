@@ -11,7 +11,7 @@ const initialState = {
   error: '',
 };
 
-const SingleProductReducer = (state = initialState, action) => {
+const singleItemReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_SINGLE_PENDING:
       return {
@@ -43,4 +43,4 @@ const SingleProductReducer = (state = initialState, action) => {
   }
 };
 
-export default SingleProductReducer;
+export default singleItemReducer;

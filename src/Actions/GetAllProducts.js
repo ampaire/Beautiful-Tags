@@ -7,7 +7,7 @@ import { FETCH_PRODUCTS_PENDING } from './Types';
 function fetchItems(token) {
   return dispatch => {
     dispatch(fetchProductsPending(FETCH_PRODUCTS_PENDING));
-    fetch(`${BASE_URL}/products`, {
+    fetch(`${BASE_URL}/items`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,

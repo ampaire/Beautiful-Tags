@@ -1,14 +1,12 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable linebreak-style */
 /* eslint-disable camelcase */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Link from '@material-ui/core/Link';
+import { Link } from 'react-router-dom';
 import ImageUploader from 'react-images-upload';
 import { createUser, fetchUser } from '../Actions/AuthActions';
-import { loadingIcon } from '../Helpers/Index';
+import { loadingIcon } from '../Constants/index';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -30,7 +28,7 @@ class SignupForm extends React.Component {
     if (store.user.auth_token !== '') {
       loadingIcon();
       fetchUser(store.user.auth_token);
-      history.push('/products');
+      history.push('/items');
     }
   }
 

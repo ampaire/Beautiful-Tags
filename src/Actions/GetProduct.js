@@ -14,7 +14,7 @@ function fetchSingle(token, id, method) {
       },
     };
 
-    fetch(`${BASE_URL}/products/${id}`, requestOptions)
+    fetch(`${BASE_URL}/items/${id}`, requestOptions)
       .then(res => res.json())
       .then(res => {
         if (res.error) {

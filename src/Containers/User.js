@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Chart } from 'react-google-charts';
 import { Link } from 'react-router-dom';
 import PropTypes, { shape } from 'prop-types';
-import Products from '../Components/Products';
+import ItemPreview from '../Components/Products';
 import { fetchUser } from '../Actions/AuthActions';
 import Nav from './Nav';
 import Spiner from '../Components/Spinner';
@@ -87,7 +87,7 @@ const UserProfile = props => {
       </h4>
       <div className="wish">
         {data.favorites.map(el => (
-          <Products props={el} key={el.id} />
+          <ItemPreview props={el} key={el.id} />
         ))}
       </div>
     </div>

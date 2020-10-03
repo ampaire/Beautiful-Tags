@@ -6,7 +6,7 @@ const initialState = {
   error: '',
 };
 
-const productsReducer = (state = initialState, action) => {
+const itemsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PRODUCTS_PENDING:
       return {
@@ -30,4 +30,4 @@ const productsReducer = (state = initialState, action) => {
   }
 };
 
-export default productsReducer;
+export default itemsReducer;

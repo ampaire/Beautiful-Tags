@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Chart } from 'react-google-charts';
 import { Link } from 'react-router-dom';
-import Products from '../Components/Products';
-import fetchUser from '../Actions/AuthActions';
+import ItemPreview from '../Components/Products';
+import { fetchUser } from '../Actions/AuthActions';
 import Nav from './Nav';
-import Spinner from '../Components/Spinner';
+import Spiner from '../Components/Spinner';
 
 const AdminProfile = props => {
   const { store, fetchUser } = props;
@@ -50,7 +50,7 @@ const AdminProfile = props => {
             </button>
           </div>
         </div>
-      ) : <Spinner />}
+      ) : <Spiner />}
 
       <div className="chart shadow">
         <Chart
@@ -83,7 +83,7 @@ const AdminProfile = props => {
           <div>
             <button className="button" type="button">
               {' '}
-              <Link to="/newitem"> Add new item </Link>
+              <Link to="/newitem"> New Item </Link>
             </button>
           </div>
         </div>
@@ -97,7 +97,7 @@ const AdminProfile = props => {
       </h4>
       <div className="liked">
         {data.liked.map(el => (
-          <Products key={el.id} props={el} />
+          <ItemPreview key={el.id} props={el} />
         ))}
       </div>
     </div>

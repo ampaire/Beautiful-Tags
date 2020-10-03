@@ -1,5 +1,5 @@
 import { fetchProductsPending, BASE_URL } from './Index';
-import { inputValidation, loadingIcon } from '../Helpers/Index';
+import { inputValidation, loadingIcon } from '../Constants/index';
 import { FETCH_SINGLE_PENDING } from './Types';
 
 function editItem(data, token, id, callBack) {
@@ -15,7 +15,7 @@ function editItem(data, token, id, callBack) {
       },
       body: event,
     };
-    fetch(`${BASE_URL}/products/${id}`, requestOptions)
+    fetch(`${BASE_URL}/items/${id}`, requestOptions)
       .then(res => res.json())
       .then(res => {
         if (res.error) {

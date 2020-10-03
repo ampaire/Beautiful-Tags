@@ -3,7 +3,7 @@ import {
 } from '../Actions/Index';
 
 import {
-  LOGIN_SUCCESS, LOGOUT_SUCCESS, GET_USER, LOGIN_USER_PENDING,
+  LOGIN, LOGOUT, FETCH_USER_DETAILS, LOGIN_USER_PENDING,
 } from '../Actions/Types';
 
 const initialState = {
@@ -18,7 +18,7 @@ const initialState = {
 
 function userReducer(state = initialState, action) {
   switch (action.type) {
-    case LOGIN_SUCCESS:
+    case LOGIN:
       saveToken(action.playload.auth_token);
       return {
         ...state,
@@ -26,7 +26,7 @@ function userReducer(state = initialState, action) {
         auth_token: getToken(),
         pending: false,
       };
-    case LOGOUT_SUCCESS:
+    case LOGOUT:
       localStorage.clear();
       return {
         ...state,
@@ -35,7 +35,7 @@ function userReducer(state = initialState, action) {
         details: getDetails(),
         token: getToken(),
       };
-    case GET_USER:
+    case FETCH_USER_DETAILS:
       saveDetails(action.playload);
       return {
         ...state,
