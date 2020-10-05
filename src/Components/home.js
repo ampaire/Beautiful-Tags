@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import {
   Container,
   Row,
   Col,
 } from 'react-bootstrap';
+import {
+  BrowserRouter as Router, Link,
+} from 'react-router-dom';
 import tag from '../Assets/tag-309129.svg';
 import Slider from './slider';
 
@@ -13,9 +15,9 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center" className="typo">
       {'Copyright © '}
-      <Link color="inherit" href="https://github.com/ampaire">
-        Phemia Ampaire
-      </Link>
+      <Router>
+        <a href="https://github.com/ampaire">Phemia Ampaire</a>
+      </Router>
       {' '}
       {new Date().getFullYear()}
       .
