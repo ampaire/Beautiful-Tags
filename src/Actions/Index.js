@@ -11,58 +11,58 @@ import {
   LOGIN_FAIL,
 } from './Types';
 
-const fetchProductsPending = type => ({
+export const fetchProductsPending = type => ({
   type,
 });
 
-const saveToken = token => {
+export const saveToken = token => {
   localStorage.setItem('token', JSON.stringify(token));
 };
 
-const saveDetails = details => {
+export const saveDetails = details => {
   localStorage.setItem('details', JSON.stringify(details));
 };
 
-const getDetails = () => {
+export const getDetails = () => {
   const res = localStorage.getItem('details');
   return JSON.parse(res);
 };
 
-const getToken = () => {
+export const getToken = () => {
   const res = localStorage.getItem('token');
   return JSON.parse(res);
 };
 
-const removeFav = playload => ({
+export const removeFav = playload => ({
   type: REMOVE_FAV,
   playload,
 });
 
-const fetchProductsSuccess = playload => ({
+export const fetchProductsSuccess = playload => ({
   type: FETCH_PRODUCTS_SUCCESS,
   playload,
 });
 
-const fetchProductsError = playload => ({
+export const fetchProductsError = playload => ({
   type: FETCH_PRODUCTS_ERROR,
   playload,
 });
 
-const fetchSingleItem = playload => ({
+export const fetchSingleItem = playload => ({
   type: FETCH_SINGLE_SUCCESS,
   playload,
 });
 
-const LOGIN_USER = playload => ({
+export const LOGIN_USER = playload => ({
   type: LOGIN,
   playload,
 });
 
-const LOGOUT_USER = () => ({
+export const LOGOUT_USER = () => ({
   type: LOGOUT,
 });
 
-const FetchUserDetails = playload => ({
+export const FetchUserDetails = playload => ({
   type: FETCH_USER_DETAILS,
   playload,
 });
@@ -72,23 +72,4 @@ export const fetchUsersError = playload => ({
   playload,
 });
 
-const AddFavorite = () => ({ type: ADD_FAVORITE });
-
-const BASE_URL = 'https://intense-savannah-62345.herokuapp.com';
-
-export {
-  fetchProductsError,
-  fetchProductsPending,
-  FetchUserDetails,
-  fetchProductsSuccess,
-  fetchSingleItem,
-  saveToken,
-  LOGIN_USER,
-  saveDetails,
-  getDetails,
-  removeFav,
-  AddFavorite,
-  getToken,
-  LOGOUT_USER,
-  BASE_URL,
-};
+export const AddFavorite = () => ({ type: ADD_FAVORITE });

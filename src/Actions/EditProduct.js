@@ -1,5 +1,6 @@
-import { fetchProductsPending, BASE_URL } from './Index';
-import { inputValidation, loadingIcon } from '../Constants/index';
+/* eslint-disable camelcase */
+import { fetchProductsPending } from './Index';
+import { inputValidation, loadingIcon, Api_url } from '../Constants/index';
 import { FETCH_SINGLE_PENDING } from './Types';
 
 function editItem(data, token, id, callBack) {
@@ -15,7 +16,7 @@ function editItem(data, token, id, callBack) {
       },
       body: event,
     };
-    fetch(`${BASE_URL}/items/${id}`, requestOptions)
+    fetch(`${Api_url}/items/${id}`, requestOptions)
       .then(res => res.json())
       .then(res => {
         if (res.error) {

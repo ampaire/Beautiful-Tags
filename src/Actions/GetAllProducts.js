@@ -1,13 +1,15 @@
+/* eslint-disable camelcase */
 import {
-  fetchProductsPending, fetchProductsSuccess, fetchProductsError, BASE_URL,
+  fetchProductsPending, fetchProductsSuccess, fetchProductsError,
 } from './Index';
 
 import { FETCH_PRODUCTS_PENDING } from './Types';
+import { Api_url } from '../Constants/index';
 
 function fetchItems(token) {
   return dispatch => {
     dispatch(fetchProductsPending(FETCH_PRODUCTS_PENDING));
-    fetch(`${BASE_URL}/items`, {
+    fetch(`${Api_url}/items`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,

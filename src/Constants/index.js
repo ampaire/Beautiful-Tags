@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-empty */
@@ -38,4 +39,8 @@ const loadingIcon = params => {
   }
 };
 
-export { toggle, inputValidation, loadingIcon };
+const Api_url = 'https://beautiful-tags.herokuapp.com';
+
+export {
+  toggle, inputValidation, loadingIcon, Api_url,
+};

@@ -1,7 +1,9 @@
+/* eslint-disable camelcase */
 import {
-  fetchProductsPending, fetchSingleItem, fetchProductsError, BASE_URL,
+  fetchProductsPending, fetchSingleItem, fetchProductsError,
 } from './Index';
 import { FETCH_SINGLE_PENDING } from './Types';
+import { Api_url } from '../Constants/index';
 
 function fetchSingle(token, id, method) {
   return dispatch => {
@@ -14,7 +16,7 @@ function fetchSingle(token, id, method) {
       },
     };
 
-    fetch(`${BASE_URL}/items/${id}`, requestOptions)
+    fetch(`${Api_url}/items/${id}`, requestOptions)
       .then(res => res.json())
       .then(res => {
         if (res.error) {

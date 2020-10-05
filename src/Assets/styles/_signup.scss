@@ -11,8 +11,15 @@
   text-align: center;
   margin: 10% 0;
   padding: 10%;
+  border: 1px grey solid;
+  border-radius: 5%;
 
   h4 {
     padding: 5% 0%;
+  }
+
+  .button {
+    background-color: black;
+    color: #fff;
   }
 }

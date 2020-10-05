@@ -95,7 +95,7 @@ class EditProfile extends React.Component {
               </div>
               <div className="field">
                 <p className="control">
-                  <button className="button is-success" type="submit">
+                  <button className="button is-outlined" type="submit">
                     Update Profile
                   </button>
                 </p>

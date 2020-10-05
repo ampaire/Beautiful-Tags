@@ -1,9 +1,10 @@
+/* eslint-disable camelcase */
 import {
-  fetchProductsPending, fetchProductsError, AddFavorite, BASE_URL,
+  fetchProductsPending, fetchProductsError, AddFavorite,
 } from './Index';
 
 import { FETCH_SINGLE_PENDING, FETCH_PRODUCTS_PENDING } from './Types';
-import { loadingIcon } from '../Constants/index';
+import { loadingIcon, Api_url } from '../Constants/index';
 
 export const addFavorite = (token, id, method) => dispatch => {
   loadingIcon();
@@ -17,7 +18,7 @@ export const addFavorite = (token, id, method) => dispatch => {
     },
     body: raw,
   };
-  fetch(`${BASE_URL}/favorites`, requestOptions)
+  fetch(`${Api_url}/favorites`, requestOptions)
     .then(res => res.json())
     .then(res => {
       if (res.error) {
@@ -40,7 +41,7 @@ export const removeFavorite = (token, id) => dispatch => {
       Authorization: `Bearer ${token}`,
     },
   };
-  fetch(`${BASE_URL}/favorites/${id}`, requestOptions)
+  fetch(`${Api_url}/favorites/${id}`, requestOptions)
     .then(res => res.json())
     .then(res => {
       if (res.error) {

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
 import {
@@ -6,16 +7,15 @@ import {
   fetchProductsError,
   fetchProductsPending,
   LOGIN_USER,
-  BASE_URL,
 } from './Index';
 
 import { USER_LOADING } from './Types';
 
-import { inputValidation } from '../Constants/index';
+import { inputValidation, Api_url } from '../Constants/index';
 
 export const loginUser = data => dispatch => {
   dispatch(fetchProductsPending(USER_LOADING));
-  fetch(`${BASE_URL}/auth/login`,
+  fetch(`${Api_url}/auth/login`,
     {
       method: 'POST',
       headers: {
@@ -43,7 +43,7 @@ export const createUser = data => dispatch => {
   for (const name in data) {
     event.append(name, data[name]);
   }
-  fetch(`${BASE_URL}/signup`,
+  fetch(`${Api_url}/signup`,
     {
       method: 'POST',
       body: event,
@@ -65,7 +65,7 @@ export const createUser = data => dispatch => {
 
 export const fetchUser = token => dispatch => {
   dispatch(fetchProductsPending(USER_LOADING));
-  fetch(`${BASE_URL}/profile`, {
+  fetch(`${Api_url}/profile`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
@@ -94,7 +94,7 @@ export const editProfile = (data, token, callBack) => dispatch => {
     },
     body: event,
   };
-  fetch(`${BASE_URL}/edit-profile`, requestOptions)
+  fetch(`${Api_url}/edit-profile`, requestOptions)
     .then(res => res.json())
     .then(res => {
       if (res.error) {

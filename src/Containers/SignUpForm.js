@@ -147,14 +147,14 @@ class SignupForm extends React.Component {
 
             <div className="field">
               <p className="control">
-                <button className="button is-success" type="submit">
+                <button className="button is-outlined" type="submit">
                   Signup
                 </button>
               </p>
             </div>
           </form>
           <h4>-Have an account?-</h4>
-          <Link to="/" className="button has-text-info">Login</Link>
+          <Link to="/" className="button is-outlined">Login</Link>
         </div>
       </div>
     );

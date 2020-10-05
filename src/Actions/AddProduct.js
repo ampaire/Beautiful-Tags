@@ -1,7 +1,8 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
-import { fetchProductsPending, BASE_URL } from './Index';
-import { inputValidation, loadingIcon } from '../Constants/index';
+import { fetchProductsPending } from './Index';
+import { inputValidation, loadingIcon, Api_url } from '../Constants/index';
 import { CREATE_ITEM_PENDING } from './Types';
 
 function createItem(data, token, callBack) {
@@ -19,7 +20,7 @@ function createItem(data, token, callBack) {
       },
       body: event,
     };
-    fetch(`${BASE_URL}/items`, requestOptions)
+    fetch(`${Api_url}/items`, requestOptions)
       .then(res => res.json())
       .then(res => {
         if (res.error) {

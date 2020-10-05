@@ -14,6 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
@@ -43,6 +44,6 @@ code {
 
 .sliderimg{
   width: 100%;
-  height: 500px;
+  height: 400px;
   object-fit: cover
 }
