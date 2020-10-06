@@ -1,6 +1,7 @@
 <h1 align="center">Beautiful Tags</h1>
 Beautiful Tags is an online store for ladies clothes, handbags and shoes. It has been developed in React for the front-end and Ruby on Rails for the back-end.
 
+![Beautiful Tags](Screenshot.png)
 ## Feautures
 
 ### User
@@ -15,6 +16,8 @@ Beautiful Tags is an online store for ladies clothes, handbags and shoes. It has
 ### Admin
 - Add a new item
 - View the estimated income incase items are added to wishlist
+
+## [Demo Link](https://beautiful-tags.netlify.app/)
 
 ## Tools
  - Rails API
