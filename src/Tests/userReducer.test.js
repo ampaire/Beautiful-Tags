@@ -1,4 +1,4 @@
-import userReducer from '../reducers/user';
+import userReducer from '../Reducers/AuthReducer';
 
 const initialState = {
   loged_in: false,

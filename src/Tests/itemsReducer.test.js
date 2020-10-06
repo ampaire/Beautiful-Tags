@@ -1,4 +1,4 @@
-import itemsReducer from '../reducers/items';
+import itemsReducer from '../Reducers/productsReducer';
 
 const initialState = {
   pending: false,

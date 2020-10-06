@@ -40,11 +40,11 @@ const AdminProfile = props => {
           <div className="control">
             <div className="tags has-addons">
               <span className="tag is-dark">Admin</span>
-              <span className="tag is-success">Yes</span>
+              <span className="tag is-danger">Yes</span>
             </div>
           </div>
           <div>
-            <button className="button" type="button">
+            <button className="button is-transparent is-outlined" type="button">
               {' '}
               <Link to="/edit-profile"> Edit </Link>
             </button>
@@ -56,6 +56,7 @@ const AdminProfile = props => {
         <Chart
           width="100%"
           height="auto"
+          className="shadow"
           chartType="PieChart"
           loader={<div>Loading Chart</div>}
           data={[

@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from '../reducers/index';
-import SignupFrom from '../containers/SignupFrom';
+import store from '../Reducers/Index';
+import SignupFrom from '../Containers/SignUpForm';
 
 test('renders learn react link', () => {
   render(

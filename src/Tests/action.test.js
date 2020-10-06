@@ -1,4 +1,4 @@
-import { LOGIN_USER, removeFav, fetchSingleItem } from '../actions/index';
+import { LOGIN_USER, removeFav, fetchSingleItem } from '../Actions/Index';
 
 describe('dispatch an action with the user token', () => {
   it('should return the user token', () => {

@@ -1,4 +1,4 @@
-import singleReducer from '../reducers/single';
+import singleReducer from '../Reducers/SingleProduct';
 
 const initialState = {
   pending: false,

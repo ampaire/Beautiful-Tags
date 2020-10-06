@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from '../reducers/index';
-import App from '../components/App';
+import store from '../Reducers/Index';
+import App from '../Components/App';
 
 test('renders learn react link', () => {
   const { getAllByText } = render(
