@@ -30,7 +30,7 @@ code {
 .slide-container {
   width: 100%;
   background-color: black;
-  color: white;
+  color: rgb(114, 113, 113);
 }
 
 .alice-carousel__prev-btn [data-area]::after,
@@ -38,7 +38,7 @@ code {
   position: relative;
   content: attr(data-area);
   text-transform: capitalize;
-  color: white;
+  color: rgb(107, 106, 106);
 }
 
 .sliderimg {
