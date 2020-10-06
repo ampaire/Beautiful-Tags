@@ -83,7 +83,7 @@ const AdminProfile = props => {
           <div>
             <button className="button is-outlined" type="button">
               {' '}
-              <Link to="/newitem"> New Item </Link>
+              <Link to="/newitem"> Add a new product </Link>
             </button>
           </div>
         </div>

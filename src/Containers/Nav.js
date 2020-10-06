@@ -25,7 +25,14 @@ const Nav = props => {
   return (
     <nav>
       <div onClick={toggle} className="hamburger">
-        <div className="line" />
+        <div className="logo">
+          <Link to="/items" className="logo-name">
+            {' '}
+            {' '}
+            Beautiful Tags
+          </Link>
+
+        </div>
         <div className="line" />
         <div className="line" />
       </div>

@@ -20,7 +20,7 @@ const ItemList = props => {
   return (
     <div>
       <Nav text="Items list" />
-      <h4 className="is-title is-size-4 has-text-centered welcome">Available Items</h4>
+      <h4 className="is-title is-size-4 has-text-centered welcome">All Products</h4>
       <div className="wrap-list">
         {shouldComponentRender() === true ? (
           <div className="item-list">

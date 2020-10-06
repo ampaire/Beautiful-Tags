@@ -51,7 +51,7 @@ class EditItem extends React.Component {
         <Nav text="Edit Item" />
         <div className="wrap">
           <div className="signup-form">
-            <h4 className="is-title is-size-4 new-book-text">EDIT ITEM</h4>
+            <h4 className="is-title is-size-4 new-book-text">EDIT PRODUCT DETAILS</h4>
             <form className="form-control" onSubmit={this.handleSubmit}>
               <div className="field">
                 <label className="label">Name</label>

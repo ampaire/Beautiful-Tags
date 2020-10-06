@@ -52,7 +52,7 @@ class ItemForm extends React.Component {
         <Nav text="New Item" />
         <div className="wrap">
           <div className="signup-form">
-            <h4 className="form-control new-book-text">CREATE ITEM</h4>
+            <h4 className="form-control new-book-text">CREATE PRODUCT</h4>
             <form className="form-control" onSubmit={this.handleSubmit}>
               <div className="field">
                 <label className="label">Name</label>
