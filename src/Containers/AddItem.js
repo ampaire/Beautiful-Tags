@@ -119,7 +119,7 @@ class EditItem extends React.Component {
 
               <div className="field">
                 <p className="control">
-                  <button className="button is-success" type="submit">
+                  <button className="button is-outlined" type="submit">
                     Update
                   </button>
                 </p>

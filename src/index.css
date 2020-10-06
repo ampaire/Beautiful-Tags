@@ -47,3 +47,7 @@ code {
   height: 400px;
   object-fit: cover
 }
+
+.img {
+  width: 40vw;
+}

@@ -81,7 +81,7 @@ const AdminProfile = props => {
             </div>
           </div>
           <div>
-            <button className="button" type="button">
+            <button className="button is-outlined" type="button">
               {' '}
               <Link to="/newitem"> New Item </Link>
             </button>

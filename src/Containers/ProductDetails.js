@@ -82,13 +82,12 @@ const ItemDetails = props => {
           </div>
           {store.user.details.details.admin === true ? (
             <div className="admin-action">
-              <button className="edit" type="button">
+              <button className="is-primary" type="button">
                 <Link to={`/items/${single.details.item.id}/edit`}>Edit item</Link>
               </button>
 
               <button
-                className={`remove
-            }`}
+                className="is-outlined"
                 onClick={handleDelete}
                 type="button"
               >
