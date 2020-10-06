@@ -33,19 +33,18 @@ code {
   color: white;
 }
 
-
-.alice-carousel__prev-btn [data-area]::after, .alice-carousel__next-btn [data-area]::after {
+.alice-carousel__prev-btn [data-area]::after,
+.alice-carousel__next-btn [data-area]::after {
   position: relative;
   content: attr(data-area);
   text-transform: capitalize;
   color: white;
 }
 
-
-.sliderimg{
+.sliderimg {
   width: 100%;
   height: 400px;
-  object-fit: cover
+  object-fit: cover;
 }
 
 .img {

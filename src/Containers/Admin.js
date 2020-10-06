@@ -43,12 +43,6 @@ const AdminProfile = props => {
               <span className="tag is-danger">Yes</span>
             </div>
           </div>
-          <div>
-            <button className="button is-transparent is-outlined" type="button">
-              {' '}
-              <Link to="/edit-profile"> Edit </Link>
-            </button>
-          </div>
         </div>
       ) : <Spiner />}
 
