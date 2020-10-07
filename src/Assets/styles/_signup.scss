@@ -1,0 +1,25 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-form {
+  width: 80%;
+  height: 80%;
+  background-color: rgb(5, 5, 5);
+  text-align: center;
+  margin: 10% 0;
+  padding: 10%;
+  border: 1px grey solid;
+  border-radius: 5%;
+
+  h4 {
+    padding: 5% 0%;
+  }
+
+  .button {
+    background-color: black;
+    color: #fff;
+  }
+}
